@@ -18,7 +18,7 @@ This is a simple console application written in C# that checks if three given nu
 
 ## Example
 
-```
+
 Wpisz 1 liczbe
 3
 Wpisz 2 liczbe
