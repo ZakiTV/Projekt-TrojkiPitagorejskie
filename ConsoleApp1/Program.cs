@@ -1,50 +1,28 @@
-﻿using System.Globalization;
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Podaj pierwsza liczbe");
+string a = Console.ReadLine();
+Console.WriteLine("Podaj druga liczbe");
+string b = Console.ReadLine();
+Console.WriteLine("Podaj trzecia liczbe");
+string c = Console.ReadLine();
 
-Console.WriteLine("Wpisz 1 liczbe");
-string number1 = Console.ReadLine();
-Console.WriteLine("Wpisz 2 liczbe");
-string number2 = Console.ReadLine();
-Console.WriteLine("Wpisz 3 liczbe");
-string number3 = Console.ReadLine();
-
-int num1;
-int num2;
-int num3;
-
-bool TryParse(string? input, out int result)
+if (int.TryParse(a, out int a1) && int.TryParse(b, out int b1) && int.TryParse(c, out  int c1))
 {
-    return int.TryParse(input, out result);
-}
-
-if (TryParse(number1, out num1) && TryParse(number2, out num2) && TryParse(number3, out num3))
-{
-    int[] numbers = { num1, num2, num3 };
-    Array.Sort(numbers);
-
-    bool isPythagorean = IsPythagorean(num1, num2, num3);
-    bool IsPythagorean(int a, int b, int c)
+    
+    int[] liczby = { a1, b1, c1 };
+    Array.Sort(liczby);
+    if (liczby[0] * liczby[0] + liczby[1] * liczby[1] == liczby[2] * liczby[2])
     {
-        if(a*a + b * b == c * c)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
-    }
-
-    if (isPythagorean)
-    {
-        Console.WriteLine("To jest trojka pitagorejska");
+        Console.WriteLine("Liczby tworza trojke pitagorejska");
     }
     else
     {
-        Console.WriteLine("To nie jest trojka pitagorejska");
+        Console.WriteLine("Liczby nie tworza trojki pitagorejskiej");
     }
+
 }
 else
 {
-    Console.WriteLine("Niepoprawny format liczby");
+    Console.WriteLine("Podano zle liczby");
+    return;
 }
